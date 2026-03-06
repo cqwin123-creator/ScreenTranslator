@@ -17,7 +17,7 @@ class OCRHelper {
 
     // 基础识别器（支持拉丁语/英语）
     private val defaultRecognizer: TextRecognizer = TextRecognition.getClient(
-    com.google.mlkit.vision.text.TextRecognizerOptions.Builder().build()
+        com.google.mlkit.vision.text.TextRecognizerOptions.DEFAULT_OPTIONS
     )
 
     // 日语识别器

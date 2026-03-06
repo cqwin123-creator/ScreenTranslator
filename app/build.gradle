@@ -41,8 +41,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
     
     // ML Kit OCR - 基础库支持拉丁语(英语)，日语需要额外依赖
-    implementation 'com.google.mlkit:text-recognition:16.0.0'
-    implementation 'com.google.mlkit:text-recognition-japanese:16.0.0'
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
+    implementation 'com.google.mlkit:text-recognition-japanese:16.0.1'
     
     // HTTP
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
