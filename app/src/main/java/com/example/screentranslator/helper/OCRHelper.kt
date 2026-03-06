@@ -6,7 +6,6 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
-import com.google.mlkit.vision.text.latin.LatinTextRecognizerOptions
 import com.google.mlkit.vision.text.japanese.JapaneseTextRecognizerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -16,10 +15,8 @@ import kotlin.coroutines.resumeWithException
 
 class OCRHelper {
 
-    // 拉丁语识别器（支持英语）
-    private val latinRecognizer: TextRecognizer = TextRecognition.getClient(
-        LatinTextRecognizerOptions.Builder().build()
-    )
+    // 基础识别器（支持拉丁语/英语）
+    private val defaultRecognizer: TextRecognizer = TextRecognition.getClient()
 
     // 日语识别器
     private val japaneseRecognizer = TextRecognition.getClient(
@@ -48,10 +45,10 @@ class OCRHelper {
             }
         } catch (e: Exception) { null }
 
-        // 拉丁语识别（英语）
-        val latinResult = try {
+        // 基础识别（英语/拉丁语）
+        val defaultResult = try {
             suspendCancellableCoroutine<Text> { continuation ->
-                latinRecognizer.process(image)
+                defaultRecognizer.process(image)
                     .addOnSuccessListener { continuation.resume(it) }
                     .addOnFailureListener { continuation.resumeWithException(it) }
             }
@@ -64,7 +61,7 @@ class OCRHelper {
             allBlocks.add(TextBlock(block.text, block.boundingBox))
         }
 
-        latinResult?.textBlocks?.forEach { block ->
+        defaultResult?.textBlocks?.forEach { block ->
             if (!allBlocks.any { it.text == block.text }) {
                 allBlocks.add(TextBlock(block.text, block.boundingBox))
             }
@@ -76,7 +73,7 @@ class OCRHelper {
     }
 
     fun release() {
-        latinRecognizer.close()
+        defaultRecognizer.close()
         japaneseRecognizer.close()
     }
 }
