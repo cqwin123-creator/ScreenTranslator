@@ -16,7 +16,9 @@ import kotlin.coroutines.resumeWithException
 class OCRHelper {
 
     // 基础识别器（支持拉丁语/英语）
-    private val defaultRecognizer: TextRecognizer = TextRecognition.getClient()
+    private val defaultRecognizer: TextRecognizer = TextRecognition.getClient(
+    com.google.mlkit.vision.text.TextRecognizerOptions.Builder().build()
+    )
 
     // 日语识别器
     private val japaneseRecognizer = TextRecognition.getClient(
