@@ -55,6 +55,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnSettings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
+
+        binding.btnLanguage.setOnClickListener {
+            startActivity(Intent(this, LanguageDownloadActivity::class.java))
+        }
         
         updateUIState()
     }

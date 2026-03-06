@@ -39,4 +39,13 @@
         android:padding="16dp"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/btn_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="语言数据下载"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>
