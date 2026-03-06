@@ -40,9 +40,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
     
-    // ML Kit OCR - 基础库支持拉丁语(英语)，日语需要额外依赖
-    implementation 'com.google.mlkit:text-recognition:16.0.1'
-    implementation 'com.google.mlkit:text-recognition-japanese:16.0.1'
+    // Tesseract OCR - 开源离线文字识别
+    implementation 'com.rmtheis:tess-two:9.1.0'
     
     // HTTP
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
