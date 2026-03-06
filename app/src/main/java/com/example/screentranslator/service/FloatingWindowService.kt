@@ -77,7 +77,7 @@ class FloatingWindowService : Service() {
         super.onCreate()
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         screenCaptureHelper = ScreenCaptureHelper(this)
-        ocrHelper = OCRHelper()
+        ocrHelper = OCRHelper(this)
 
         val display = windowManager.defaultDisplay
         val size = Point()
