@@ -5,6 +5,7 @@ import android.graphics.Rect
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
+import com.google.mlkit.vision.text.TextRecognizerOptions
 import com.google.mlkit.vision.text.japanese.JapaneseTextRecognizerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
@@ -13,8 +14,10 @@ import kotlinx.coroutines.withContext
 class OCRHelper {
 
     // 默认识别器支持拉丁语（英语）
-    private val defaultRecognizer: TextRecognizer = TextRecognition.getClient()
-    
+    private val defaultRecognizer: TextRecognizer = TextRecognition.getClient(
+        TextRecognizerOptions.DEFAULT_OPTIONS
+    )
+
     // 日语识别器
     private val japaneseRecognizer = TextRecognition.getClient(
         JapaneseTextRecognizerOptions.Builder().build()

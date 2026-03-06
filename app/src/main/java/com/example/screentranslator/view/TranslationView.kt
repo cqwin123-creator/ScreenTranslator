@@ -103,7 +103,7 @@ class TranslationView(context: Context) : View(context) {
         textPaint.color = Color.WHITE
         textPaint.textSize = textSize * resources.displayMetrics.scaledDensity
 
-        var y = height - panelHeight + 50
+        var y = (height - panelHeight + 50).toFloat()
         for (translation in translations) {
             canvas.drawText(translation, 50f, y, textPaint)
             y += textPaint.textSize * 2

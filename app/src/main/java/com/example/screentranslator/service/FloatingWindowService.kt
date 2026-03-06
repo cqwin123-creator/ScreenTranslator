@@ -237,7 +237,7 @@ class FloatingWindowService : Service() {
                         val deltaY = (event.rawY - initialTouchY).toInt()
                         floatingButtonParams?.x = initialX + deltaX
                         floatingButtonParams?.y = initialY + deltaY
-                        windowManager.updateViewLayout(floatingButtonButton, floatingButtonParams)
+                        windowManager.updateViewLayout(floatingButtonView, floatingButtonParams)
                         true
                     }
                     else -> false
